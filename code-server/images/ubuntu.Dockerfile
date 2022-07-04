@@ -1,4 +1,4 @@
-FROM ghcr.io/spectrs/docker-base:alpine
+FROM ghcr.io/spectrs/docker-base:ubuntu
 
 USER root
 
