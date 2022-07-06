@@ -92,7 +92,7 @@ variable "docker_image" {
 
   # Prevents admin errors when the image is not found
   validation {
-    condition     = fileexists("images/${var.docker_image}.Dockerfile")
+    condition     = fileexists("${var.docker_image}.Dockerfile")
     error_message = "Invalid Docker image. The file does not exist in the images directory."
   }
 }
@@ -104,7 +104,7 @@ resource "docker_volume" "home_volume" {
 resource "docker_image" "coder_image" {
   name = "coder-base-${data.coder_workspace.me.owner}-${lower(data.coder_workspace.me.name)}"
   build {
-    path       = "./images/"
+    path       = ""
     dockerfile = "${var.docker_image}.Dockerfile"
     tag        = ["coder-${var.docker_image}:v0.1"]
   }
