@@ -64,14 +64,14 @@ data "coder_workspace" "me" {
 resource "coder_agent" "dev" {
   os             = "linux"
   arch           = var.step2_arch
-  startup_script = "code-server --auth none --port 13337"
+  startup_script = "code-server --auth none"
 }
 
 resource "coder_app" "code-server" {
   agent_id          = coder_agent.dev.id
   name              = "VS Code"
   icon              = "https://dev.spect.rs/icon/code.svg"
-  url               = "http://localhost:13337"
+  url               = "http://localhost:8080/?folder=/home/coder"
   relative_path     = true
 }
 
