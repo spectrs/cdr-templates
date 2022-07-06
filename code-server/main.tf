@@ -70,7 +70,7 @@ resource "coder_agent" "dev" {
 resource "coder_app" "code-server" {
   agent_id          = coder_agent.dev.id
   name              = "VS Code"
-  icon              = "${data.coder_workspace.me.access_url}/icons/vscode.svg"
+  icon              = "https://dev.spect.rs/icon/code.svg"
   url               = "http://localhost:13337"
   relative_path     = true
 }
